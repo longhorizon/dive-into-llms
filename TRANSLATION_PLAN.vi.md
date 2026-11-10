@@ -144,21 +144,22 @@ Quy ước tên:
 - [x] `vi/chapter11/README.vi.md` (552 dòng split = 549 dòng nội dung gốc + 2 dòng nguồn + newline cuối; 0 ảnh markdown (3 thẻ `<img>` HTML trong bảng/div giữ nguyên, chỉ rewrite `src='figs/` → `src='../../documents/chapter11/figs/` ở dòng 16/24/290); 19 fence (38 marker) giữ nguyên văn byte-identical — 0 Hán trong fence; 48 dòng Hán dịch qua FULL dict 52 key (gồm rewrite link: dòng 7 `RLHF.pdf` → `../../documents/chapter11/RLHF.pdf`, dòng 9 `RLHF.ipynb` → `RLHF.vi.ipynb`); giữ nguyên văn: lệnh tải shell (35/39/43), import bị chú thích (50–52), dòng tqdm (282–284), bảng kết quả HTML 361–502, tuple output lưu 543–548, ký tự zero-width dòng 523, typo "NVDIA", `</div>  ` dòng 292; README không có khối `<!-- -->`).
 - [x] `vi/chapter11/RLHF.vi.ipynb` (38 cells: 22 markdown cells [0,1,2,3,4,5,8,11,12,13,16,18,20,22,25,27,28,29,31,32,34,36] dịch **độc lập** (trùng 36.6% với README); 16 code cells 0 Hán — source byte-passthrough, `outputs=[]`, `execution_count=None` theo tiền lệ ch4; metadata kernelspec/language_info giữ nguyên; cell0 = nguồn (`RLHF.ipynb`) + dòng trắng + `# Thực hành RLHF`; 22 md source không newline cuối, dạng chuỗi phẳng; rewrite 3 thẻ `<img>` (cells 0/2/31); 2 khối `<!-- ... -->` chỉ có trong notebook (cells 29/31) là chú giải prose → dịch; mọi dòng dịch xuất hiện verbatim trong `README.vi.md` ngoại trừ 5 dòng NOTEBOOK_ONLY).
 - [x] `requirements.txt` bỏ qua (0 Hán).
-- [ ] Commit.
+- [x] Commit `faba654`.
 
 ### Task 13 — PDF slides (bắt buộc), thứ tự ngắn → dài
-- [ ] `stega.pdf` (13 tr) → `vi/chapter7/stega.slides.vi.md`
-- [ ] `math.pdf` (17 tr) → `vi/chapter4/math.slides.vi.md`
-- [ ] `dive_edit_0410.pdf` (21 tr, 44 Hán) → bản nhẹ: đầu trang + chú thích Việt
-- [ ] `RLHF.pdf` (24 tr) → `vi/chapter11/RLHF.slides.vi.md`
-- [ ] `GUIagent.pdf` (43 tr) → `vi/chapter9/GUIagent.slides.vi.md`
-- [ ] `dive-Jailbreak.pdf` (44 tr) → `vi/chapter6/dive-Jailbreak.slides.vi.md`
-- [ ] `dive-into-safety.pdf` (51 tr) → `vi/chapter10/dive-into-safety.slides.vi.md`
-- [ ] `dive-into-prompting.pdf` (76 tr) → `vi/chapter2/dive-into-prompting.slides.vi.md`
-- [ ] `dive-into-llm.pdf` (77 tr) → `vi/chapter1/dive-into-llm.slides.vi.md`
-- [ ] `watermark.pdf` (48 tr, 0 Hán trích được) → ghi chú "slide dạng ảnh, không trích được chữ" trong surrogate; cân nhắc OCR sau
-- [ ] `mllms.pdf` (81 tr, 0 Hán trích được) → như trên
-- Quy trình: PyMuPDF trích text theo trang → dịch → surrogate có mục lục theo trang (`## Trang N`). Commit theo từng nhóm chương.
+- [x] `stega.pdf` (13 tr) → `vi/chapter7/stega.slides.vi.md` (125 dòng)
+- [x] `math.pdf` (17 tr) → `vi/chapter4/math.slides.vi.md` (243 dòng)
+- [x] `dive_edit_0410.pdf` (21 tr, 44 Hán) → `vi/chapter3/dive_edit.slides.vi.md` (168 dòng; surrogate trích chữ PyMuPDF)
+- [x] `RLHF.pdf` (24 tr) → `vi/chapter11/RLHF.slides.vi.md` (212 dòng)
+- [x] `GUIagent.pdf` (43 tr) → `vi/chapter9/GUIagent.slides.vi.md` (394 dòng)
+- [x] `dive-Jailbreak.pdf` (44 tr) → `vi/chapter6/dive-Jailbreak.slides.vi.md` (426 dòng)
+- [x] `dive-into-safety.pdf` (51 tr) → `vi/chapter10/dive-into-safety.slides.vi.md` (664 dòng — template định dạng surrogate)
+- [x] `dive-into-prompting.pdf` (76 tr) → `vi/chapter2/dive-into-prompting.slides.vi.md` (1035 dòng)
+- [x] `dive-into-llm.pdf` (77 tr) → `vi/chapter1/dive-into-llm.slides.vi.md` (839 dòng, đủ 77 trang, dịch 7 chunk A–G)
+- [x] `watermark.pdf` (48 tr, 0 Hán trích được) → `vi/chapter5/watermark.slides.vi.md` (note-only: "slide dạng ảnh, không trích được chữ"; cân nhắc OCR sau)
+- [x] `mllms.pdf` (81 tr, 0 Hán trích được) → `vi/chapter8/mllms.slides.vi.md` (note-only, như trên)
+- [x] Quy trình: PyMuPDF trích text theo trang (`extract_pdfs.py`) → dịch → surrogate có mục lục theo trang (`## Trang N`). Commit theo từng nhóm chương: `3edcf3d` (ch3/4/6/7/9/10/11), `c12d1e6` (ch2), `ffc2b2d` (ch1), `8c4a25b` (ch5/8 note-only).
+- Ghi chú định dạng: surrogate không có fence/ảnh (RAW/IMG/FNC không áp dụng khi đối chiếu với PDF gốc); Hán còn sót chỉ là tên riêng Hán tự, `上海交通大学`, tựa trích dẫn/thẻ bài nguyên văn (có chú giải Việt) — thuộc allowlist GLOSSARY mục 4; checker báo `!! CON TIENG TRUNG` cho 6 surrogate là chấp nhận được vì lý do này.
 
 ### Task 14 — QA và hoàn tất
 - [ ] `python tools/check_untranslated.py` — 0 Hán ngoài danh sách cho phép trên mọi cặp file.
@@ -182,9 +183,9 @@ Quy ước tên:
 | 8 | Chương 7 | ✅ | `629a23c` |
 | 9 | Chương 8 | ✅ | `b589d12` |
 | 10 | Chương 9 | ✅ | `5609f5e` |
-| 11 | Chương 10 | ✅ | (commit này) |
-| 12 | Chương 11 | ✅ | (commit này) |
-| 13 | PDF slides | ⬜ | — |
+| 11 | Chương 10 | ✅ | `5609f52`→`6c28f62` (đọc lại: `6c28f62`) |
+| 12 | Chương 11 | ✅ | `faba654` |
+| 13 | PDF slides | ✅ | `3edcf3d`, `c12d1e6`, `ffc2b2d`, `8c4a25b` |
 | 14 | QA + link ngược | ⬜ | — |
 
 Ước lượng: Markdown+notebook ~9–10 giờ; PDF ~495 trang (bớt 2 file 0 Hán trích được → còn ~330 trang có chữ thật để dịch).
