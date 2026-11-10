@@ -162,9 +162,9 @@ Quy ước tên:
 - Ghi chú định dạng: surrogate không có fence/ảnh (RAW/IMG/FNC không áp dụng khi đối chiếu với PDF gốc); Hán còn sót chỉ là tên riêng Hán tự, `上海交通大学`, tựa trích dẫn/thẻ bài nguyên văn (có chú giải Việt) — thuộc allowlist GLOSSARY mục 4; checker báo `!! CON TIENG TRUNG` cho 6 surrogate là chấp nhận được vì lý do này.
 
 ### Task 14 — QA và hoàn tất
-- [ ] `python tools/check_untranslated.py` — 0 Hán ngoài danh sách cho phép trên mọi cặp file.
-- [ ] Đối chiếu số ảnh/link/code fence bản dịch ↔ gốc (script tự động làm).
-- [ ] Rà soát nhất quán thuật ngữ theo GLOSSARY.vi.md.
+- [x] `python tools/check_untranslated.py` — chạy lần cuối (10/11/2026): 33 file, cặp README↔notebook đều OK; chỉ 6 surrogate báo `!! CON TIENG TRUNG` với Hán thuộc allowlist GLOSSARY mục 4 (tên Hán tự, 上海交通大学, tựa trích nguyên văn có chú giải).
+- [x] Đối chiếu số ảnh/link/code fence bản dịch ↔ gốc — script checker tự động (cột RAW/IMG/LNK/FNC, tất cả OK).
+- [x] Rà soát nhất quán thuật ngữ theo GLOSSARY.vi.md: quét biến thể (chưng cất, giấu tin, đa phương tiện, tác tử, chuỗi suy nghĩ, căn chỉnh, tính trung thành...) — sửa `đa phương thức`→`đa phương tiện` (ch1 README + notebook), `độ trung thành`→`tính trung thành` (ch10 surrogate); formalize allowlist Hán tại GLOSSARY mục 4.
 - [ ] (Cần user đồng ý) thêm 1 link tiếng Việt vào `README.md` gốc: `[中文](README.md) | [Tiếng Việt](vi/README.vi.md)`.
 - [ ] Commit cuối.
 

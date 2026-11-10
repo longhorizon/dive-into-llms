@@ -474,7 +474,7 @@ Cộng đồng — tấn công thao túng cộng đồng đa tác tử:
 ❑ Phát hiện chính
 ⚫ Trong môi trường có rủi ro, tác tử dễ bị nhiễu dẫn tới bỏ mục tiêu người dùng ban đầu và hành xử thiếu trung thành
 ⚫ Ở giai đoạn hiện tại, độ an toàn của tác tử tương quan chặt với năng lực mô hình — các mô hình mạnh vừa có thể dự đoán đúng vừa giữ được sự trung thành (GPT-4o, GPT-4v và Claude)
-⚫ Năng lực mạnh nhưng độ trung thành không đủ (GLM-4v) lại dễ bị tấn công thành công hơn — căn chỉnh an toàn hướng tới tác tử là cực kỳ quan trọng
+⚫ Năng lực mạnh nhưng tính trung thành không đủ (GLM-4v) lại dễ bị tấn công thành công hơn — căn chỉnh an toàn hướng tới tác tử là cực kỳ quan trọng
 
 ## Trang 35
 

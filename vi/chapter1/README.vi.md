@@ -14,11 +14,11 @@ Bạn muốn nâng cao hiệu năng của mô hình tiền huấn luyện trên 
 #### 1.1 Tìm hiểu bộ công cụ: Transformers
 https://github.com/huggingface/transformers
 
-> 🤗 Transformers cung cấp các API và công cụ giúp tải về và huấn luyện những mô hình tiền huấn luyện hiện đại một cách dễ dàng. Sử dụng mô hình tiền huấn luyện giúp giảm tiêu hao tính toán và lượng phát thải carbon, đồng thời tiết kiệm thời gian và nguồn lực so với huấn luyện từ đầu. Các mô hình này hỗ trợ những nhiệm vụ phổ biến trên nhiều phương thức (modality), chẳng hạn:
+> 🤗 Transformers cung cấp các API và công cụ giúp tải về và huấn luyện những mô hình tiền huấn luyện hiện đại một cách dễ dàng. Sử dụng mô hình tiền huấn luyện giúp giảm tiêu hao tính toán và lượng phát thải carbon, đồng thời tiết kiệm thời gian và nguồn lực so với huấn luyện từ đầu. Các mô hình này hỗ trợ những nhiệm vụ phổ biến trên nhiều phương tiện (modality), chẳng hạn:
 📝 Xử lý ngôn ngữ tự nhiên: phân loại văn bản, nhận dạng thực thể có tên, hỏi đáp, mô hình hóa ngôn ngữ, tóm tắt, dịch máy, câu hỏi nhiều lựa chọn và sinh văn bản.
 🖼️ Thị giác máy tính: phân loại ảnh, phát hiện đối tượng và phân đoạn ngữ nghĩa.
 🗣️ Âm thanh: nhận dạng giọng nói tự động và phân loại âm thanh.
-🐙 Đa phương thức (multimodal): hỏi đáp trên bảng bảng tính, nhận dạng ký tự quang học (OCR), trích xuất thông tin từ tài liệu quét, phân loại video và hỏi đáp thị giác (VQA).
+🐙 Đa phương tiện (multimodal): hỏi đáp trên bảng tính, nhận dạng ký tự quang học (OCR), trích xuất thông tin từ tài liệu quét, phân loại video và hỏi đáp thị giác (VQA).
 
 Tài liệu tiếng Trung chi tiết: https://huggingface.co/docs/transformers/main/zh/index
 

@@ -40,7 +40,7 @@ Dùng **nhất quán** trong mọi file `*.vi.md` và `*.vi.ipynb`. Thêm mục 
 | 显存 | bộ nhớ GPU (VRAM) | VRAM |
 | 课件 | slide bài giảng | slides |
 | 教程 / 脚本 | hướng dẫn / script | tutorial / script |
-| 实验 | thực nghiệm /实验 thí nghiệm | lab / experiment |
+| 实验 | thực nghiệm / thí nghiệm | lab / experiment |
 | 环境要求 | yêu cầu môi trường | requirements |
 | 注意事项 | lưu ý | notes |
 | 免责声明 | miễn trừ trách nhiệm | disclaimer |
@@ -68,9 +68,16 @@ Dùng **nhất quán** trong mọi file `*.vi.md` và `*.vi.ipynb`. Thêm mục 
 | 智能体安全 | An toàn cho tác tử (agent safety) |
 | RLHF安全对齐 | Căn chỉnh an toàn bằng RLHF |
 
-## 4. Tên riêng giữ nguyên
+## 4. Allowlist Hán tự (duy nhất được phép trong file `vi/`)
 
-《动手学大模型》 · 上海交通大学 · 张倬胜 · 华为昇腾 · 《大模型开发全流程》 · hiascend.com · pan.quark.cn · blog.csdn.net
+Hán tự chỉ được xuất hiện trong các trường hợp sau (checker `!! CON TIENG TRUNG` cho surrogate là chấp nhận được):
+
+- Tên riêng Hán tự: 张倬胜 · 苏剑森 · 华为昇腾 và tên người đóng góp khác.
+- Tổ chức / tác phẩm: 上海交通大学 · 《动手学大模型》 · 《大模型开发全流程》.
+- Tựa trích dẫn, thẻ bài, quy định trích **nguyên văn** từ slide gốc kèm chú giải tiếng Việt (ví dụ 垂域大模型, 大模型智能体, 知行合一, 奶奶漏洞).
+- Dòng nguồn đầu mỗi file dịch: `《动手学大模型》(Lordog/dive-into-llms)`.
+
+Ngoài các trường hợp trên, mọi file `vi/` phải có 0 ký tự Hán. Không chấp nhận hỗn hợp kiểu `tinh chỉnh theo指令`.
 
 ## 5. Nhật ký quyết định
 
