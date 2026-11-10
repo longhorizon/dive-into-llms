@@ -135,8 +135,10 @@ Quy ước tên:
 - [x] `vi/chapter9/GUIagent.vi.ipynb` (mirror-with-gaps 8 cells, gần như mirror toàn bộ: cell0 = nguồn + README 1; cell1 = README 2–7; cell2 = README 8–46 (kèm fence JSON); cell3 = README 48–50 (README 47 trắng vắng); cell4 code = README 52–145 nguyên văn (fence 51/146 thành code cell, không marker); cell5 = README 147; cell6 = README 148–213 (README 214 trắng vắng); cell7 = README 215–227).
 - [x] Commit (xem bảng tiến độ).
 
-### Task 11 — Chương 10: An toàn cho agent
-- [ ] `vi/chapter10/README.vi.md` (1021 Hán) · [ ] `agent.vi.ipynb` (mirror) · [ ] Commit.
+### Task 11 — Chương 10: An toàn cho tác tử
+- [x] `vi/chapter10/README.vi.md` (242 dòng = 239 dòng nội dung gốc + 2 dòng nguồn + newline cuối; 13 ảnh; 8 fence (16 marker) giữ nguyên văn — 0 Hán trong fence; 55 dòng Hán ngoài fence dịch qua FULL dict (68 key gồm 13 rewrite asset `](assets/` và `](./assets/` → `../../documents/chapter10/assets/`); giữ nguyên văn: dấu cách cuối dòng 19, typo "Risk Descriptioin" (dòng 47), đường dẫn text `./eval/...`, `./results/standard` trong prose).
+- [x] `vi/chapter10/agent.vi.ipynb` (mirror 3 markdown cells, nguồn newline-chuẩn-hóa như bản gốc: cell0 = nguồn + README 1–11 (13 dòng, không newline cuối); cell1 = README 15–34 + 1 dòng trắng (21 dòng, newline cuối; README 12–14 trắng vắng, README 35–36 trắng gom lại); cell2 = README 37–239 (newline cuối)).
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 12 — Chương 11: Căn chỉnh an toàn bằng RLHF
 - [ ] `vi/chapter11/README.vi.md` (550 dòng / 961 Hán).
@@ -179,8 +181,9 @@ Quy ước tên:
 | 7 | Chương 6 | ✅ | `26b63be` |
 | 8 | Chương 7 | ✅ | `629a23c` |
 | 9 | Chương 8 | ✅ | `b589d12` |
-| 10 | Chương 9 | ✅ | (commit này) |
-| 11–12 | Chương 10–11 | ⬜ | — |
+| 10 | Chương 9 | ✅ | `5609f5e` |
+| 11 | Chương 10 | ✅ | (commit này) |
+| 12 | Chương 11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
