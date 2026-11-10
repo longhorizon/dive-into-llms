@@ -116,8 +116,9 @@ Quy ước tên:
 - [x] Commit (xem bảng tiến độ).
 
 ### Task 7 — Chương 6: Tấn công jailbreak
-- [ ] `vi/chapter6/README.vi.md` — 16 prompt tấn công trong fence giữ nguyên văn.
-- [ ] `dive-jailbreak.vi.ipynb` (mirror) · [ ] Commit.
+- [x] `vi/chapter6/README.vi.md` (182 dòng = 180 gốc + 2 dòng nguồn; mirror ~100%; 2 ảnh; 24 fence; 3 link; 16 prompt tấn công mẫu trong fence giữ nguyên văn; giữ typo `method_namemethod_name` dòng 123).
+- [x] `vi/chapter6/dive-jailbreak.vi.ipynb` (mirror 5 markdown cells, ranges 1–8, 10–34, 35–45, 47–116, 117–180; 17 fence mở ` ```python ` trong notebook được giữ khi dịch — README gốc dùng fence trần).
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 8 — Chương 7: Giấu tin (steganography)
 - [ ] `vi/chapter7/README.vi.md` (458 Hán).
@@ -172,8 +173,9 @@ Quy ước tên:
 | 3 | Chương 2 | ✅ | `7c7ddba` |
 | 4 | Chương 3 | ✅ | `356d052` |
 | 5 | Chương 4 | ✅ | `5262ddf` |
-| 6 | Chương 5 | ✅ | (commit này) |
-| 7–12 | Chương 6–11 | ⬜ | — |
+| 6 | Chương 5 | ✅ | `854b720` |
+| 7 | Chương 6 | ✅ | (commit này) |
+| 8–12 | Chương 7–11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
