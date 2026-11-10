@@ -131,8 +131,9 @@ Quy ước tên:
 - [x] Commit (xem bảng tiến độ).
 
 ### Task 10 — Chương 9: Agent GUI
-- [ ] `vi/chapter9/README.vi.md` và `GUIagent.vi.ipynb` dịch **độc lập** (trùng 64.4%).
-- [ ] Commit.
+- [x] `vi/chapter9/README.vi.md` (229 dòng = 227 dòng nội dung gốc + 2 dòng nguồn; 0 ảnh; 7 fence (14 marker) giữ nguyên văn — Hán duy nhất trong fence là string literal JSON mẫu (dòng 23, 26–30, giữ nguyên theo tiền lệ ch4/ch6); 35 dòng Hán ngoài fence dịch qua FULL dict; mọi link là URL tuyệt đối (Slides/Paper/Data/Model/Code) — không cần rewrite đường dẫn; giữ nguyên URL typo `documents/chapter8/GUIagent.pdf` (dòng 10) + dấu cách cuối `},   ` (dòng 165)).
+- [x] `vi/chapter9/GUIagent.vi.ipynb` (mirror-with-gaps 8 cells, gần như mirror toàn bộ: cell0 = nguồn + README 1; cell1 = README 2–7; cell2 = README 8–46 (kèm fence JSON); cell3 = README 48–50 (README 47 trắng vắng); cell4 code = README 52–145 nguyên văn (fence 51/146 thành code cell, không marker); cell5 = README 147; cell6 = README 148–213 (README 214 trắng vắng); cell7 = README 215–227).
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 11 — Chương 10: An toàn cho agent
 - [ ] `vi/chapter10/README.vi.md` (1021 Hán) · [ ] `agent.vi.ipynb` (mirror) · [ ] Commit.
@@ -177,8 +178,9 @@ Quy ước tên:
 | 6 | Chương 5 | ✅ | `854b720` |
 | 7 | Chương 6 | ✅ | `26b63be` |
 | 8 | Chương 7 | ✅ | `629a23c` |
-| 9 | Chương 8 | ✅ | (commit này) |
-| 10–12 | Chương 9–11 | ⬜ | — |
+| 9 | Chương 8 | ✅ | `b589d12` |
+| 10 | Chương 9 | ✅ | (commit này) |
+| 11–12 | Chương 10–11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
