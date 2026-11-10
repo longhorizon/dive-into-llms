@@ -126,8 +126,9 @@ Quy ước tên:
 - [x] Commit (xem bảng tiến độ).
 
 ### Task 9 — Chương 8: Mô hình đa phương tiện
-- [ ] `vi/chapter8/README.vi.md` (348 dòng / 2026 Hán — chia 2 lượt).
-- [ ] `mllms.vi.ipynb` (mirror) · [ ] Commit.
+- [x] `vi/chapter8/README.vi.md` (349 dòng = 347 dòng nội dung gốc + 2 dòng nguồn; 8 ảnh; 6 fence (12 marker) giữ nguyên văn — 0 Hán trong fence; 94 dòng Hán dịch qua FULL dict; link tương đối `](./data|code|ckpt/` rewrite về `../../documents/chapter8/...`; giữ nguyên URL typo `documents/chapter6/mllms.pdf` + dấu cách cuối dòng 32).
+- [x] `vi/chapter8/mllms.vi.ipynb` (mirror 3 markdown cells: cell0 = nguồn + README 1–7 + 1 đoạn lạ về agent/rủi ro (dịch riêng cho khớp notebook) + README 8–12; cell1 = README 16–61; cell2 = README 62–347 + 1 dòng trắng cuối; README 13–15 không có trong notebook).
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 10 — Chương 9: Agent GUI
 - [ ] `vi/chapter9/README.vi.md` và `GUIagent.vi.ipynb` dịch **độc lập** (trùng 64.4%).
@@ -174,8 +175,10 @@ Quy ước tên:
 | 4 | Chương 3 | ✅ | `356d052` |
 | 5 | Chương 4 | ✅ | `5262ddf` |
 | 6 | Chương 5 | ✅ | `854b720` |
-| 7 | Chương 6 | ✅ | (commit này) |
-| 8–12 | Chương 7–11 | ⬜ | — |
+| 7 | Chương 6 | ✅ | `26b63be` |
+| 8 | Chương 7 | ✅ | `629a23c` |
+| 9 | Chương 8 | ✅ | (commit này) |
+| 10–12 | Chương 9–11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
