@@ -106,9 +106,9 @@ Quy ước tên:
 - [x] `vi/chapter3/README.vi.md` (165 dòng mirror; 5 ảnh; 8 fence; 1 lệch chấp nhận: README dòng 114 `max_new_tokens=3)` sang notebook tách 2 dòng) · [x] `dive_edit.vi.ipynb` (mirror 5 cells) · [x] Commit (xem bảng tiến độ).
 
 ### Task 5 — Chương 4: Suy luận toán học
-- [ ] `vi/chapter4/README.vi.md` (dịch độc lập — trùng 12.7%).
-- [ ] `vi/chapter4/sft_math.vi.ipynb`: dịch 650 Hán markdown + **chỉ comment `#`** trong code (407 Hán), giữ chuỗi literal tiếng Trung.
-- [ ] Commit.
+- [x] `vi/chapter4/README.vi.md` (45 dòng, dịch độc lập — trùng 12.7%; 3 link; 1 fence).
+- [x] `vi/chapter4/sft_math.vi.ipynb`: 38 cells — thêm cell0 markdown chứa dòng nguồn (notebook gốc bắt đầu bằng code cell); dịch 10 markdown cell + **chỉ comment `#`** trong 27 code cell (kể cả comment nội dòng cell19, cell25 `##`), giữ chuỗi literal tiếng Trung.
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 6 — Chương 5: Watermark
 - [ ] `vi/chapter5/README.vi.md` · [ ] `watermark.vi.ipynb` (mirror) · [ ] Commit.
@@ -168,7 +168,9 @@ Quy ước tên:
 | 1 | `vi/README.vi.md` | ✅ | `acb1e56` |
 | 2 | Chương 1 | ✅ | `23adcfe` |
 | 3 | Chương 2 | ✅ | `7c7ddba` |
-| 4–12 | Chương 3–11 | ⬜ | — |
+| 4 | Chương 3 | ✅ | `356d052` |
+| 5 | Chương 4 | ✅ | (commit này) |
+| 6–12 | Chương 5–11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
