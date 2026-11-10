@@ -165,8 +165,8 @@ Quy ước tên:
 - [x] `python tools/check_untranslated.py` — chạy lần cuối (10/11/2026): 33 file, cặp README↔notebook đều OK; chỉ 6 surrogate báo `!! CON TIENG TRUNG` với Hán thuộc allowlist GLOSSARY mục 4 (tên Hán tự, 上海交通大学, tựa trích nguyên văn có chú giải).
 - [x] Đối chiếu số ảnh/link/code fence bản dịch ↔ gốc — script checker tự động (cột RAW/IMG/LNK/FNC, tất cả OK).
 - [x] Rà soát nhất quán thuật ngữ theo GLOSSARY.vi.md: quét biến thể (chưng cất, giấu tin, đa phương tiện, tác tử, chuỗi suy nghĩ, căn chỉnh, tính trung thành...) — sửa `đa phương thức`→`đa phương tiện` (ch1 README + notebook), `độ trung thành`→`tính trung thành` (ch10 surrogate); formalize allowlist Hán tại GLOSSARY mục 4.
-- [ ] (Cần user đồng ý) thêm 1 link tiếng Việt vào `README.md` gốc: `[中文](README.md) | [Tiếng Việt](vi/README.vi.md)`.
-- [ ] Commit cuối.
+- [x] (User đồng ý 11/2026) đã thêm link tiếng Việt vào `README.md` gốc ngay dưới tiêu đề: `[中文](README.md) | [Tiếng Việt](vi/README.vi.md)` (render HTML `<p align="center">`).
+- [x] Commit cuối (kèm commit QA `a1487c5`).
 
 ## 5. Bảng tiến độ
 
@@ -186,6 +186,6 @@ Quy ước tên:
 | 11 | Chương 10 | ✅ | `5609f52`→`6c28f62` (đọc lại: `6c28f62`) |
 | 12 | Chương 11 | ✅ | `faba654` |
 | 13 | PDF slides | ✅ | `3edcf3d`, `c12d1e6`, `ffc2b2d`, `8c4a25b` |
-| 14 | QA + link ngược | ⬜ | — |
+| 14 | QA + link ngược | ✅ | `a1487c5` + commit link README |
 
 Ước lượng: Markdown+notebook ~9–10 giờ; PDF ~495 trang (bớt 2 file 0 Hán trích được → còn ~330 trang có chữ thật để dịch).

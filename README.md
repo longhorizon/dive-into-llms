@@ -2,6 +2,9 @@
 <h1 align="center">《动手学大模型》系列编程实践教程</h1>
 </p>
 <p align="center">
+    <a href="README.md">中文</a> | <a href="vi/README.vi.md">Tiếng Việt</a>
+</p>
+<p align="center">
   	<a href="https://img.shields.io/badge/version-v0.1.0-blue">
       <img alt="version" src="https://img.shields.io/badge/version-v0.1.0-blue?color=FF8000?color=009922" />
     </a>
