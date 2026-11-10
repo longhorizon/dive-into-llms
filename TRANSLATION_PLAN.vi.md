@@ -121,9 +121,9 @@ Quy ước tên:
 - [x] Commit (xem bảng tiến độ).
 
 ### Task 8 — Chương 7: Giấu tin (steganography)
-- [ ] `vi/chapter7/README.vi.md` (458 Hán).
+- [x] `vi/chapter7/README.vi.md` (88 dòng = 86 phần tử gốc gồm dòng cuối rỗng + 2 dòng nguồn; 0 ảnh; 3 fence; comment `#` trong fence dịch theo chính sách ch4 — dòng 25, 49, 52, 55; code bị comment-hóa (53) và string literal (56) giữ nguyên văn).
 - [x] `llm_stega.ipynb` bỏ qua (0 Hán).
-- [ ] Commit.
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 9 — Chương 8: Mô hình đa phương tiện
 - [ ] `vi/chapter8/README.vi.md` (348 dòng / 2026 Hán — chia 2 lượt).
