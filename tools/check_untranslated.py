@@ -11,7 +11,9 @@ import os
 import re
 
 HAN = re.compile(r"[\u4e00-\u9fff]")
-FENCE = re.compile(r"```[^\n]*\n[\s\S]*?```")
+FENCE = re.compile(r"```[^\n]*(?:\n[\s\S]*?)?```")
+# Xoa chuoi trong code (giu comment) de cho phep git nguyen prompt Tieng Trung trong ma
+STR_LIT = re.compile(r"'''[\s\S]*?'''|\"\"\"[\s\S]*?\"\"\"|'(?:[^'\\\n]|\\.)*'|\"(?:[^\"\\\n]|\\.)*\"")
 IMG = re.compile(r"!\[[^\]]*\]\([^)]*\)")
 LINK = re.compile(r"\]\(([^)]*)\)")
 
@@ -67,6 +69,9 @@ def stats(text):
     stripped = text
     for name in ALLOWED:
         stripped = stripped.replace(name, "")
+    # Cho phep giu nguyen prompt Tieng Trung trong chuoi string cua code block;
+    # chu (comment) va prose mang chu Tieng van bi tinh.
+    stripped = FENCE.sub(lambda m: STR_LIT.sub("", m.group(0)), stripped)
     return {
         "han": len(HAN.findall(stripped)),
         "han_raw": len(HAN.findall(text)),
