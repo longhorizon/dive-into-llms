@@ -111,7 +111,9 @@ Quy ước tên:
 - [x] Commit (xem bảng tiến độ).
 
 ### Task 6 — Chương 5: Watermark
-- [ ] `vi/chapter5/README.vi.md` · [ ] `watermark.vi.ipynb` (mirror) · [ ] Commit.
+- [x] `vi/chapter5/README.vi.md` (194 dòng = 192 gốc + 2 dòng nguồn; mirror 100%; 2 ảnh; 11 fence; 5 link).
+- [x] `vi/chapter5/watermark.vi.ipynb` (mirror 5 markdown cells, ranges verified: 1–13, 16–42, 43–152, 153–189, 190–192).
+- [x] Commit (xem bảng tiến độ).
 
 ### Task 7 — Chương 6: Tấn công jailbreak
 - [ ] `vi/chapter6/README.vi.md` — 16 prompt tấn công trong fence giữ nguyên văn.
@@ -169,8 +171,9 @@ Quy ước tên:
 | 2 | Chương 1 | ✅ | `23adcfe` |
 | 3 | Chương 2 | ✅ | `7c7ddba` |
 | 4 | Chương 3 | ✅ | `356d052` |
-| 5 | Chương 4 | ✅ | (commit này) |
-| 6–12 | Chương 5–11 | ⬜ | — |
+| 5 | Chương 4 | ✅ | `5262ddf` |
+| 6 | Chương 5 | ✅ | (commit này) |
+| 7–12 | Chương 6–11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 

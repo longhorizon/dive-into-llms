@@ -1,0 +1,194 @@
+> Bản dịch tiếng Việt · nguồn: [README.md](../../documents/chapter5/README.md) · 《动手学大模型》(Lordog/dive-into-llms)
+
+# Watermark trên mô hình lớn
+
+Dẫn nhập: phần này giới thiệu watermark của mô hình ngôn ngữ
+
+> Nhúng vào nội dung do mô hình ngôn ngữ sinh ra những "watermark" mà con người không thể nhận ra, nhưng thuật toán có thể phát hiện được.
+
+## Mục tiêu của bài hướng dẫn
+
+1. Nhúng watermark: nhúng watermark khi mô hình ngôn ngữ sinh nội dung
+2. Phát hiện watermark: đo cường độ watermark của một văn bản cho trước
+3. Đánh giá watermark: đánh giá hiệu năng phát hiện của phương pháp watermark
+4. Đánh giá tính bền vững (robustness) của watermark (tùy chọn)
+
+
+
+## Chuẩn bị
+
+### 2.1 Tìm hiểu kho mã X-SIR
+
+https://github.com/zwhe99/X-SIR
+
+Kho X-SIR bao gồm cài đặt các nội dung sau
+
+- Ba thuật toán watermark văn bản: X-SIR, SIR và KGW
+- Hai phương pháp tấn công gỡ bỏ watermark: paraphrase và translation
+
+![img](../../documents/chapter5/assets/x-sir.png)
+
+### 2.2 Chuẩn bị môi trường
+
+```Shell
+git clone https://github.com/zwhe99/X-SIR && cd X-SIR
+conda create -n xsir python==3.10.10
+conda activate xsir
+pip3 install -r requirements.txt
+# [optional] pip3 install flash-attn==2.3.3
+```
+
+> Các phiên bản trong requirements.txt đều là phiên bản được khuyến nghị, không bắt buộc.
+
+
+
+## Ví dụ thực hành
+
+> Sử dụng thuật toán KGW để nhúng watermark vào nội dung do mô hình ngôn ngữ sinh ra
+
+### 3.1 Chuẩn bị dữ liệu
+
+Tổ chức các prompt đưa vào mô hình ngôn ngữ thành một file jsonl:
+
+```JSON
+{"prompt": "Ghost of Emmett Till: Based on Real Life Events "}
+{"prompt": "Antique Cambridge Glass Pink Decagon Console Bowl Engraved Gold Highlights\n"}
+{"prompt": "2009 > Information And Communication Technology Index statistics - Countries "}
+......
+```
+
+- Mỗi dòng là một json object, chứa ít nhất một khóa có tên "prompt"
+- Các phần sau lấy file `data/dataset/mc4/mc4.en.jsonl` làm ví dụ. File này chứa tổng cộng 500 mẫu dữ liệu; nếu thấy thời gian xử lý của mô hình quá dài, có thể tự thu gọn dữ liệu.
+
+### 3.2 Nhúng watermark
+
+- Chọn mô hình và thuật toán watermark. Ở đây chúng ta chọn mô hình `baichuan-inc/Baichuan-7B` và thuật toán watermark `KGW`
+
+  - ```Shell
+    MODEL_NAME=baichuan-inc/Baichuan-7B
+    MODEL_ABBR=baichuan-7b
+    WATERMARK_METHOD_FLAG="--watermark_method kgw"
+    ```
+
+- Sinh nội dung và nhúng watermark
+
+  - ```Shell
+    python3 gen.py \
+        --base_model $MODEL_NAME \
+        --fp16 \
+        --batch_size 32 \
+        --input_file data/dataset/mc4/mc4.en.jsonl \
+        --output_file gen/$MODEL_ABBR/kgw/mc4.en.mod.jsonl \
+        $WATERMARK_METHOD_FLAG
+    ```
+
+  - Lệnh này lưu nội dung do mô hình sinh ra vào file output: `gen/$MODEL_ABBR/kgw/mc4.en.mod.jsonl`
+
+  - Định dạng của file output như dưới đây, trong đó response là nội dung mô hình sinh ra:
+
+    - ```JSON
+      {"prompt": "Ghost of Emmett Till: Based on Real Life Events ", "response": ".In August if 1955 African American Emmett Louis Till (21)\nThe second part of The Man From Waco, about Dan Millers trial for murdering his friend Michael Capps in a Texas wiener wrastle as I believe the statute says called it then; back at that time that would have surely occurred since Dan kept his pistol in one of those watery doggy bags he keeps around to clean himself with after emptying can into a nearby lake just minutes before committing his crime. If what we read is true thats exactly where Dan left his stolen gun and later used it in the robbery gone wrong which killed two innocent boys when his own accomplice got into an argument over not being paid enough therefore wanting out. This angered Miller whos history of mental instability could be taken one way or another but this criminal act was unavoidable once they entered FBIs hands and some other very powerful law officers who were involved either directly"}
+      {"prompt": "Antique Cambridge Glass Pink Decagon Console Bowl Engraved Gold Highlights\n", "response": "An exceptionally fine decorative antique pink decagonal glass side bowl is the perfect example of early art and innovation . Fully engraved, this beautiful English vintage tableware piece exhibits a great degree on craftsmanship! Made in England during the mid 1800's it features three sets of concentric ribbons on the exterior to elegantly highlight an intricate, deep reddish color which evokes warmth and comfort for years to come! This historically significant vase has been featured within numerous museum exhibitions including \"Glass at The Corning Museum\" ; \"The First Half Century\" & a special travelling exhibit called:\" Sight Of Glass: British Cut Glass\" by ibex limited (retailer) as well as \"SIGNALS - Celebrating History In American Silver Through The Articulated Bottle Vessel\" presented at the Corning Museum of Glass 2012 ASA national symposium! We provide our customers with quality phot"}
+      {"prompt": "2009 > Information And Communication Technology Index statistics - Countries ", "response": "5/22/2016\nAnnual change of mobile telephone subscriptions in Armenia (per 1 population). 2.2% increase is equivalent to 38 subscriptions per 100 people. Density rank: 121 out of 222.\nCyclist(s)/month(S). Likes bike riding? Take advantage of discount and cheap rental bikes at Rimon Bike Rentals in Yerevan! No advance payments or additional deposits are required. They have a good range of bicycles, including mountainbikes. More on their Facebook page \nYou must know about electric cars. The Renault Fluence KZERO gets it right in the city but I'm not sure what mileage you can expect from it. Still its fun project http://www.renault-kzen.com\nFor more on this and related issues : Armenian Institute for Electronic Governance reports |"}
+      ......
+      ```
+
+
+
+### 3.3 Phát hiện watermark
+
+> Phát hiện watermark tức là cho trước một đoạn văn bản, tính cường độ watermark (z-score) của đoạn văn bản đó.
+
+- Tính cường độ watermark của văn bản **có watermark**
+
+  - ```python
+    python3 detect.py \
+        --base_model $MODEL_NAME \
+        --detect_file gen/$MODEL_ABBR/kgw/mc4.en.mod.jsonl \
+        --output_file gen/$MODEL_ABBR/kgw/mc4.en.mod.z_score.jsonl \
+        $WATERMARK_METHOD_FLAG
+    ```
+
+- Tính cường độ watermark của văn bản **không có watermark**
+
+  - ```python
+    python3 detect.py \
+        --base_model $MODEL_NAME \
+        --detect_file data/dataset/mc4/mc4.en.jsonl \
+        --output_file gen/$MODEL_ABBR/kgw/mc4.en.hum.z_score.jsonl \
+        $WATERMARK_METHOD_FLAG
+    ```
+
+- Định dạng của file output như sau:
+
+  - ```JSON
+    {"z_score": 12.105422509165574, "prompt": "Ghost of Emmett Till: Based on Real Life Events ", "response": ".In August if 1955 African American Emmett Louis Till (21)\nThe second part of The Man From Waco, about Dan Millers trial for murdering his friend Michael Capps in a Texas wiener wrastle as I believe the statute says called it then; back at that time that would have surely occurred since Dan kept his pistol in one of those watery doggy bags he keeps around to clean himself with after emptying can into a nearby lake just minutes before committing his crime. If what we read is true thats exactly where Dan left his stolen gun and later used it in the robbery gone wrong which killed two innocent boys when his own accomplice got into an argument over not being paid enough therefore wanting out. This angered Miller whos history of mental instability could be taken one way or another but this criminal act was unavoidable once they entered FBIs hands and some other very powerful law officers who were involved either directly", "biases": null}
+    {"z_score": 12.990684249887122, "prompt": "Antique Cambridge Glass Pink Decagon Console Bowl Engraved Gold Highlights\n", "response": "An exceptionally fine decorative antique pink decagonal glass side bowl is the perfect example of early art and innovation . Fully engraved, this beautiful English vintage tableware piece exhibits a great degree on craftsmanship! Made in England during the mid 1800's it features three sets of concentric ribbons on the exterior to elegantly highlight an intricate, deep reddish color which evokes warmth and comfort for years to come! This historically significant vase has been featured within numerous museum exhibitions including \"Glass at The Corning Museum\" ; \"The First Half Century\" & a special travelling exhibit called:\" Sight Of Glass: British Cut Glass\" by ibex limited (retailer) as well as \"SIGNALS - Celebrating History In American Silver Through The Articulated Bottle Vessel\" presented at the Corning Museum of Glass 2012 ASA national symposium! We provide our customers with quality phot", "biases": null}
+    {"z_score": 11.455466938203664, "prompt": "2009 > Information And Communication Technology Index statistics - Countries ", "response": "5/22/2016\nAnnual change of mobile telephone subscriptions in Armenia (per 1 population). 2.2% increase is equivalent to 38 subscriptions per 100 people. Density rank: 121 out of 222.\nCyclist(s)/month(S). Likes bike riding? Take advantage of discount and cheap rental bikes at Rimon Bike Rentals in Yerevan! No advance payments or additional deposits are required. They have a good range of bicycles, including mountainbikes. More on their Facebook page \nYou must know about electric cars. The Renault Fluence KZERO gets it right in the city but I'm not sure what mileage you can expect from it. Still its fun project http://www.renault-kzen.com\nFor more on this and related issues : Armenian Institute for Electronic Governance reports |", "biases": null}
+    ......
+    ```
+
+- Tự quan sát bằng mắt sự khác biệt cường độ watermark giữa hai file
+
+### 3.4 Đánh giá watermark
+<a name="eval"></a>
+
+- Nhập vào các file z-score của kết quả phát hiện watermark, tính độ chính xác phát hiện và vẽ đường cong ROC
+
+  - ```Shell
+    python3 eval_detection.py \
+            --hm_zscore gen/$MODEL_ABBR/kgw/mc4.en.hum.z_score.jsonl \
+            --wm_zscore gen/$MODEL_ABBR/kgw/mc4.en.mod.z_score.jsonl \
+            --roc_curve roc
+    
+    AUC: 1.000
+    
+    TPR@FPR=0.1: 0.998
+    TPR@FPR=0.01: 0.998
+    
+    F1@FPR=0.1: 0.999
+    F1@FPR=0.01: 0.999
+    ```
+
+![img](../../documents/chapter5/assets/curve.png)
+
+## Đánh giá tính bền vững (robustness) của watermark (tùy chọn)
+
+> Sau khi tấn công văn bản có watermark bằng paraphrase và translation, đánh giá lại hiệu quả phát hiện
+
+### 4.1 Chuẩn bị
+
+Chúng tôi sử dụng mô hình gpt-3.5-turbo-1106 để paraphrase và translation văn bản có watermark. Có thể tự chọn công cụ khác.
+
+- Thiết lập apikey của openai
+
+  - ```Shell
+    export OPENAI_API_KEY=xxxx
+    ```
+
+- Sửa RPM (requests per min) và TPM (tokens per min) trong `attack/const.py`
+
+### 4.2 Tiến hành tấn công (lấy translation làm ví dụ)
+
+- Dịch văn bản có watermark sang tiếng Trung
+
+  - ```Shell
+    python3 attack/translate.py \
+        --input_file gen/$MODEL_ABBR/kgw/mc4.en.mod.jsonl \
+        --output_file gen/$MODEL_ABBR/kgw/mc4.en-zh.mod.jsonl \
+        --model gpt-3.5-turbo-1106 \
+        --src_lang en \
+        --tgt_lang zh
+    ```
+
+- Đánh giá lại
+
+  -  Xem [3.4](#eval)
+
+- So sánh thay đổi hiệu năng watermark trước và sau tấn công
+
+
+
+## Bài tập nâng cao
+
+- Xem tài liệu [X-SIR](https://github.com/zwhe99/X-SIR) để học cách dùng hai thuật toán còn lại (X-SIR, SIR) và đánh giá hiệu năng của chúng dưới các phương pháp tấn công khác nhau
