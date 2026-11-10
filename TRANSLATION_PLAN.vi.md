@@ -95,19 +95,19 @@ Quy ước tên:
 - [x] Commit.
 
 ### Task 2 — Chương 1: Tinh chỉnh và triển khai
-- [ ] `vi/chapter1/README.vi.md` (dịch từ 211 dòng / 1051 Hán; 17 ảnh; 160 Hán trong fence → giữ fence nguyên văn nếu là code, dich nếu là output/comment).
-- [ ] `vi/chapter1/dive-tuning.vi.ipynb` (mirror 98–100%: dich 1 lần, đổ vào markdown cells).
-- [ ] Commit `ch1: README + notebook`.
+- [x] `vi/chapter1/README.vi.md` (dịch từ 211 dòng / 1051 Hán; 17 ảnh; 160 Hán trong fence → giữ fence nguyên văn nếu là code, dich nếu là output/comment).
+- [x] `vi/chapter1/dive-tuning.vi.ipynb` (mirror 98–100%: dich 1 lần, đổ vào markdown cells).
+- [x] Commit `ch1: README + notebook` → `23adcfe`.
 
 ### Task 3 — Chương 2: Học theo prompt và CoT
-- [ ] `vi/chapter2/README.vi.md` · [ ] `dive-prompting.vi.ipynb` (mirror) · [ ] Commit.
+- [x] `vi/chapter2/README.vi.md` (147 dòng; 3 ảnh; 2 fence giữ nguyên văn (prompt Trung trong chuỗi literal)) · [x] `dive-prompting.vi.ipynb` (mirror 10 cells) · [x] Commit `7c7ddba` (kèm cập nhật checker: cho phép chuỗi Hán trong fence).
 
 ### Task 4 — Chương 3: Chỉnh sửa tri thức
-- [ ] `vi/chapter3/README.vi.md` · [ ] `dive_edit.vi.ipynb` (mirror) · [ ] Commit.
+- [x] `vi/chapter3/README.vi.md` (165 dòng mirror; 5 ảnh; 8 fence; 1 lệch chấp nhận: README dòng 114 `max_new_tokens=3)` sang notebook tách 2 dòng) · [x] `dive_edit.vi.ipynb` (mirror 5 cells) · [x] Commit (xem bảng tiến độ).
 
 ### Task 5 — Chương 4: Suy luận toán học
 - [ ] `vi/chapter4/README.vi.md` (dịch độc lập — trùng 12.7%).
-- [ ] `vi/chapter4/sft_math.vi.ipynb`: dich 650 Hán markdown + **chỉ comment `#`** trong code (407 Hán), giữ chuỗi literal tiếng Trung.
+- [ ] `vi/chapter4/sft_math.vi.ipynb`: dịch 650 Hán markdown + **chỉ comment `#`** trong code (407 Hán), giữ chuỗi literal tiếng Trung.
 - [ ] Commit.
 
 ### Task 6 — Chương 5: Watermark
@@ -165,8 +165,10 @@ Quy ước tên:
 | Task | Mục | Trạng thái | Commit |
 |---|---|---|---|
 | 0 | Chuẩn bị, Git, khung `vi/` | ✅ | (gộp Task 1) |
-| 1 | `vi/README.vi.md` | ✅ | pending |
-| 2–12 | Chương 1–11 | ⬜ | — |
+| 1 | `vi/README.vi.md` | ✅ | `acb1e56` |
+| 2 | Chương 1 | ✅ | `23adcfe` |
+| 3 | Chương 2 | ✅ | `7c7ddba` |
+| 4–12 | Chương 3–11 | ⬜ | — |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
