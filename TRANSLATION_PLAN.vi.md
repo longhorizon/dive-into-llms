@@ -141,9 +141,9 @@ Quy ước tên:
 - [x] Commit (xem bảng tiến độ).
 
 ### Task 12 — Chương 11: Căn chỉnh an toàn bằng RLHF
-- [ ] `vi/chapter11/README.vi.md` (550 dòng / 961 Hán).
-- [ ] `RLHF.vi.ipynb` (38 cells, 1025 Hán markdown) dịch **độc lập** (trùng 36.6%).
-- [ ] `requirements.txt` bỏ qua (0 Hán).
+- [x] `vi/chapter11/README.vi.md` (552 dòng split = 549 dòng nội dung gốc + 2 dòng nguồn + newline cuối; 0 ảnh markdown (3 thẻ `<img>` HTML trong bảng/div giữ nguyên, chỉ rewrite `src='figs/` → `src='../../documents/chapter11/figs/` ở dòng 16/24/290); 19 fence (38 marker) giữ nguyên văn byte-identical — 0 Hán trong fence; 48 dòng Hán dịch qua FULL dict 52 key (gồm rewrite link: dòng 7 `RLHF.pdf` → `../../documents/chapter11/RLHF.pdf`, dòng 9 `RLHF.ipynb` → `RLHF.vi.ipynb`); giữ nguyên văn: lệnh tải shell (35/39/43), import bị chú thích (50–52), dòng tqdm (282–284), bảng kết quả HTML 361–502, tuple output lưu 543–548, ký tự zero-width dòng 523, typo "NVDIA", `</div>  ` dòng 292; README không có khối `<!-- -->`).
+- [x] `vi/chapter11/RLHF.vi.ipynb` (38 cells: 22 markdown cells [0,1,2,3,4,5,8,11,12,13,16,18,20,22,25,27,28,29,31,32,34,36] dịch **độc lập** (trùng 36.6% với README); 16 code cells 0 Hán — source byte-passthrough, `outputs=[]`, `execution_count=None` theo tiền lệ ch4; metadata kernelspec/language_info giữ nguyên; cell0 = nguồn (`RLHF.ipynb`) + dòng trắng + `# Thực hành RLHF`; 22 md source không newline cuối, dạng chuỗi phẳng; rewrite 3 thẻ `<img>` (cells 0/2/31); 2 khối `<!-- ... -->` chỉ có trong notebook (cells 29/31) là chú giải prose → dịch; mọi dòng dịch xuất hiện verbatim trong `README.vi.md` ngoại trừ 5 dòng NOTEBOOK_ONLY).
+- [x] `requirements.txt` bỏ qua (0 Hán).
 - [ ] Commit.
 
 ### Task 13 — PDF slides (bắt buộc), thứ tự ngắn → dài
@@ -183,7 +183,7 @@ Quy ước tên:
 | 9 | Chương 8 | ✅ | `b589d12` |
 | 10 | Chương 9 | ✅ | `5609f5e` |
 | 11 | Chương 10 | ✅ | (commit này) |
-| 12 | Chương 11 | ⬜ | — |
+| 12 | Chương 11 | ✅ | (commit này) |
 | 13 | PDF slides | ⬜ | — |
 | 14 | QA + link ngược | ⬜ | — |
 
